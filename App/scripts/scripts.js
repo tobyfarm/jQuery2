@@ -10,7 +10,7 @@ var Task = function(task){
 
 var addTask = function(task){
   if(task){
-    task = new task(task);
+    task = new Task(task);
     listo.push(task)
 
     $('#newItemInput').val('');
@@ -75,7 +75,11 @@ $(document).on('click', '#archived', function (e){
   advanceTask(task)
 })
 
-
+$('#saveNewItem').on('click', function (e) {
+    e.preventDefault();
+    var task = $('#newItemInput').val().trim();
+    addTask(task);
+});
 
 
 // The END of the DOC STOP HERE
